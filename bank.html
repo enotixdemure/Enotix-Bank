@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Enotix Premier Bank - The Apex of Financial Excellence</title>
+    <!-- Шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Иконки Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { 
+            --gold: #c5a059; 
+            --gold-light: #e6ca88;
+            --bg: #030303; 
+            --text: #e0e0e0; 
+        }
+        body { 
+            margin: 0; font-family: 'Montserrat', sans-serif; color: var(--text); 
+            background: url('https://i.ibb.co/tT9j6Jq1/wmremove-transformed.png') no-repeat center center fixed; 
+            background-size: cover; 
+            overflow-x: hidden;
+        }
+        body::before { 
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0, 0, 0, 0.85); z-index: -1; 
+        }
+        
+        header { padding: 25px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-size: 22px; letter-spacing: 3px; text-transform: uppercase; color: #fff; font-family: 'Playfair Display', serif; }
+        .gold-text { color: var(--gold); }
+        
+        .hero { min-height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 5%; }
+        h1 { font-size: 2.3rem; margin-bottom: 20px; font-family: 'Playfair Display', serif; line-height: 1.2; }
+        .hero p { font-size: 0.95rem; line-height: 1.6; color: #aaa; }
+        
+        .section { padding: 50px 5%; }
+        h2 { text-align: center; color: var(--gold); font-size: 2rem; margin-bottom: 30px; font-family: 'Playfair Display', serif; line-height: 1.3; }
+        
+        .grid-cards { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .card { background: rgba(20, 20, 20, 0.6); padding: 30px 20px; border: 1px solid #333; text-align: center; transition: 0.3s; border-radius: 12px; }
+        .card:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(197, 160, 89, 0.1); }
+        .card-icon { font-size: 35px; color: var(--gold); margin-bottom: 15px; display: block; filter: drop-shadow(0 0 8px rgba(197, 160, 89, 0.4)); }
+        
+        .concierge { background: rgba(10, 10, 10, 0.9); padding: 50px 5%; text-align: center; border-top: 1px solid #222; }
+        footer { padding: 30px 5%; border-top: 1px solid #222; text-align: center; font-size: 0.75rem; color: #666; line-height: 1.5; }
+        
+        .btn { width: 100%; max-width: 280px; padding: 15px 25px; border: 1px solid var(--gold); background: transparent; color: var(--gold); cursor: pointer; text-transform: uppercase; font-weight: bold; border-radius: 6px; transition: 0.3s; display: inline-block; box-sizing: border-box; text-align: center; }
+        .btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 15px rgba(197, 160, 89, 0.4); }
+
+        /* Кастомизация выпадающего списка */
+        #loanType {
+            appearance: none;
+            background: rgba(15, 15, 15, 0.8) url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23c5a059%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E') no-repeat right 20px center !important;
+            background-size: 12px !important;
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            color: #fff;
+            padding: 15px 40px 15px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px; 
+            outline: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #loanType option {
+            background-color: #121212;
+            color: white;
+            padding: 10px;
+        }
+
+        /* Кастомизация Range слайдера */
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            outline: none;
+            margin: 15px 0 25px 0;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--gold);
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.6);
+        }
+
+        /* Поле ввода суммы погашения */
+        .input-field {
+            width: 100%;
+            background: rgba(15, 15, 15, 0.8);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px; 
+            outline: none;
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
+
+        .input-field:focus, #loanType:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
+        }
+
+        .glass { 
+            background: rgba(15, 15, 15, 0.7); 
+            padding: 25px 20px; 
+            border-radius: 16px; 
+            backdrop-filter: blur(15px); 
+            border: 1px solid rgba(197, 160, 89, 0.2); 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+            box-sizing: border-box;
+        }
+
+        .calculator-container {
+            display: flex;
+            flex-direction: column; 
+            gap: 35px;
+        }
+        
+        .controls { 
+            width: 100%; 
+        }
+
+        .calculator-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
+        /* Банковская карточка под мобилки */
+        .bank-card {
+            width: 100%; 
+            height: 220px;   
+            background: linear-gradient(135deg, #181818 0%, #0d0d0d 50%, #262114 100%);
+            border: 1px solid var(--gold);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.1); 
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .bank-card::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(197,160,89,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.02); filter: brightness(1.3); text-shadow: 0 0 10px var(--gold); }
+            100% { transform: scale(1); filter: brightness(1); }
+        }
+
+        .animate-pulse {
+            animation: pulseGlow 0.4s ease-in-out;
+        }
+
+        /* Планшеты и ПК */
+        @media (min-width: 768px) {
+            header { padding: 30px 10%; }
+            .logo { font-size: 24px; }
+            .hero { height: 70vh; padding: 0 10%; }
+            h1 { font-size: 3.2rem; }
+            .section { padding: 80px 10%; }
+            h2 { font-size: 2.5rem; margin-bottom: 50px; }
+            .grid-cards { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+            .glass { padding: 50px; }
+            .calculator-container {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 50px;
+            }
+            .controls { flex: 1.4; }
+            .bank-card { flex: 0 0 380px; height: 230px; padding: 30px; }
+            .concierge { padding: 60px 10%; }
+            footer { padding: 40px 10%; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Enotix <span class="gold-text">Premier</span></div>
+    </header>
+
+    <div class="hero">
+        <h1>Финансы с душой, результат - здесь и сейчас</h1>
+        <p style="max-width: 700px; margin: 0 auto 10px auto;">Мы знаем, что вы цените не красивые отчеты, а реальную прибыль. Enotix Premier - это банк для тех, кто понимает толк в кредитовании и привык забирать свое, пока другие сомневаются. Мы создали систему, где каждый миллиард работает на вас без лишней бюрократии.</p>
+        <div style="margin-top: 25px; width: 100%;">
+            <a href="https://t.me/yuardemure_bot" target="_blank" style="text-decoration: none;">
+                <button class="btn" style="background: var(--gold); color: #000;">
+                    Стать клиентом
+                </button>
+            </a>
+        </div>
+    </div>
+    
+    <section class="section">
+        <div class="glass" style="max-width: 1000px;">
+            <h2 style="margin-bottom: 30px; text-align: center; color: var(--gold); font-family: 'Playfair Display', serif;">Гибкая система погашения</h2>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 20px;" class="desktop-grid-2">
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0;">
+                    <h4 style="color: var(--gold); margin-top: 0; font-size: 1.05rem;">Выбор категории</h4>
+                    <p style="font-size: 0.9rem; color: #bbb; margin-bottom: 0; line-height: 1.5;">Подходящий тип кредита с фиксированной ставкой - на транспорт, бизнес, ферму или недвижимость.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0;">
+                    <h4 style="color: var(--gold); margin-top: 0; font-size: 1.05rem;">Проценты от остатка</h4>
+                    <p style="font-size: 0.9rem; color: #bbb; margin-bottom: 0; line-height: 1.5;">Сумма процентов к оплате рассчитывается индивидуально от текущего остатка вашего долга.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0;">
+                    <h4 style="color: var(--gold); margin-top: 0; font-size: 1.05rem;">Умная фиксация</h4>
+                    <p style="font-size: 0.9rem; color: #bbb; margin-bottom: 0; line-height: 1.5;">Возврат 50% и более от суммы фиксирует процент на отметке половины от первоначального.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0;">
+                    <h4 style="color: var(--gold); margin-top: 0; font-size: 1.05rem;">Мгновенные уведомления</h4>
+                    <p style="font-size: 0.9rem; color: #bbb; margin-bottom: 0; line-height: 1.5;">При любом обновлении условий расчета вы моментально получите уведомление в боте.</p>
+                </div>
+            </div>
+            <div style="margin-top: 25px; background: rgba(197, 160, 89, 0.08); padding: 20px; text-align: center; border: 1px dashed var(--gold); border-radius: 8px;">
+                <i class="fa-solid fa-user-gear" style="color: var(--gold); font-size: 22px; margin-bottom: 8px; display: block;"></i>
+                <p style="margin: 0; font-size: 0.9rem; line-height: 1.4;"><b>Управление профилем:</b> Весь контроль над кредитами и погашение доступны в разделе «👤 Личный профиль».</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="glass" style="max-width: 1100px;">
+            <h2 style="margin-bottom: 30px;">Калькулятор гибкого погашения</h2>
+            
+            <div class="calculator-container" style="margin-bottom: 40px;">
+                <div class="controls">
+                    <label class="calculator-label">Сумма долга: <b id="rangeValue" style="color: var(--gold);">10</b> млрд $</label>
+                    <input type="range" id="debtInput" min="1" max="30" value="10" step="1" 
+                        oninput="updateRangeLabel(this.value); calc()">
+                    
+                    <label class="calculator-label">Назначение кредита</label>
+                    <select id="loanType" onchange="calc()" style="margin-bottom: 20px;">
+                        <option value="0.02">Рабочий транспорт (2%)</option>
+                        <option value="0.01">Бизнес (1%)</option>
+                        <option value="0.015">Майнинг ферма (1.5%)</option>
+                        <option value="0.03">Машина / Дом / Аксессуары (3%)</option>
+                    </select>
+
+                    <label class="calculator-label">Сумма к погашению (млрд $):</label>
+                    <input type="number" id="payoff" value="0" oninput="calc()" class="input-field" placeholder="Введите сумму">
+                </div>
+
+                <!-- Банковская карточка -->
+                <div class="bank-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="width: 42px; height: 32px; background: linear-gradient(135deg, #e6ca88 0%, #c5a059 100%); border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.3);"></div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 0.65rem; color: #888; text-transform: uppercase; letter-spacing: 1px;">Остаток баланса</div>
+                            <div style="font-size: 1rem; font-weight: 600; color: #fff;" id="cardBalance">10.000 млрд $</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.75rem; color: #777; letter-spacing: 2px;">Enotix PREMIER</div>
+                        <div style="font-size: 0.95rem; font-family: monospace; color: #bbb; letter-spacing: 2px; margin-top: 2px;">**** **** **** 8888</div>
+                    </div>
+                    <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px; display: flex; justify-content: space-between; align-items: flex-end;">
+                        <div>
+                            <div style="font-size: 0.7rem; color: #888;">Еженедельный платеж</div>
+                            <div style="font-size: 1.4rem; font-weight: bold; color: var(--gold);" id="cardRes">200 млн $</div>
+                        </div>
+                        <i class="fa-brands fa-cc-mastercard" style="font-size: 26px; color: var(--gold); opacity: 0.8;"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-cards">
+                <div class="card" style="text-align: left;">
+                    <i class="fa-solid fa-percent card-icon" style="font-size: 24px; margin-bottom: 12px;"></i>
+                    <h3 style="margin: 0 0 8px 0; font-size: 1.1rem; font-family: 'Playfair Display', serif;">Гибкая система погашения</h3>
+                    <p style="font-size: 0.85rem; color: #aaa; margin: 0; line-height: 1.5;">
+                        Процентная ставка рассчитывается от остатка вашего кредита. Перерасчет происходит в начале каждой новой недели.
+                    </p>
+                </div>
+                <div class="card" style="text-align: left;">
+                    <i class="fa-brands fa-telegram card-icon" style="font-size: 24px; margin-bottom: 12px;"></i>
+                    <h3 style="margin: 0 0 8px 0; font-size: 1.1rem; font-family: 'Playfair Display', serif;">Управление через Telegram</h3>
+                    <p style="font-size: 0.85rem; color: #aaa; margin: 0; line-height: 1.5;">
+                        Ваш персональный финансовый помощник доступен в Telegram. Отслеживайте статус кредита и график платежей 24/7.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function updateRangeLabel(val) { document.getElementById('rangeValue').innerText = val; }
+
+        function animateValue(elementId, start, end, duration, decimals = 3, isMillion = false) {
+            const obj = document.getElementById(elementId);
+            let startTimestamp = null;
+            
+            obj.classList.remove('animate-pulse');
+            void obj.offsetWidth; 
+            obj.classList.add('animate-pulse');
+
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const currentVal = start + (end - start) * progress;
+                
+                if (isMillion) {
+                    // Переводим миллиарды в миллионы (умножаем на 1000) и выводим без знаков после запятой
+                    const millions = Math.round(currentVal * 1000);
+                    obj.innerText = millions + " млн $";
+                } else {
+                    obj.innerText = currentVal.toFixed(decimals) + " млрд $";
+                }
+
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        let prevRemaining = 10;
+        let prevPayment = 0.2;
+
+        function calc() {
+            const debt = parseFloat(document.getElementById('debtInput').value) || 0;
+            const rate = parseFloat(document.getElementById('loanType').value);
+            const payoff = parseFloat(document.getElementById('payoff').value) || 0;
+            
+            const remaining = Math.max(0, debt - payoff);
+            const weeklyPayment = remaining * rate;
+            
+            animateValue('cardBalance', prevRemaining, remaining, 400, 3, false);
+            animateValue('cardRes', prevPayment, weeklyPayment, 400, 0, true);
+
+            prevRemaining = remaining;
+            prevPayment = weeklyPayment;
+        }
+
+        window.onload = function() {
+            calc();
+        }
+    </script>
+
+    <div class="concierge">
+        <h2 style="font-size: 1.7rem; margin-bottom: 15px;">Больше, чем консьерж. Мы - ваш надежный тыл.</h2>
+        <p style="max-width: 800px; margin: 0 auto; color: #aaa; line-height: 1.6; font-size: 0.9rem;">
+            В Enotix мы работаем не по шаблону, а по справедливости. Наш консьерж-сервис - это не просто набор услуг, это команда, которая чувствует ваши задачи на лету. Мы знаем цену вашему времени и тому драйву, с которым вы строите свою империю. Частные перелеты, закрытые сделки или оперативное управление активами - всё делается с душой, чтобы вы могли фокусироваться на главном: получении своего результата прямо сейчас.
+        </p>
+    </div>
+
+    <footer>
+        <p>© 2026 Enotix Premier Bank. Лицензия № 0001. Банковские услуги предоставляются в рамках строгой конфиденциальности. Информация не является публичной офертой.</p>
+    </footer>
+
+    <style>
+        @media (min-width: 768px) {
+            .desktop-grid-2 { grid-template-columns: 1fr 1fr !important; gap: 30px !important; }
+            .concierge h2 { font-size: 2rem !important; }
+            .concierge p { font-size: 1rem !important; }
+        }
+    </style>
+
+</body>
+</html>
